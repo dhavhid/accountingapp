@@ -1,0 +1,298 @@
+FORMAT: 1A
+
+# Personal Budget
+
+Personal Budget is a simple API to allow developers to build an app to record incomes and expenses for a particular person's financing activity.
+
+This API uses JSON as its main data structure to transport content. The authentication relies on OAuth2.0 protocol and implements the Password Grant Tokens type for the built-in mobile app and Implicit Grant Tokens type for third party apps.
+The dates are served based on UTC time so they can be easily transformed into the respective end user locale.
+
+## Income Collection [/income]
+
+A set of API endpoints to interact with the incomes collection
+
+### List all incomes [GET]
+
+By default this endpoint returns all incomes tracked during the current month.
+
++ Response 200 (application/json)
+
+    [
+        {
+            "transactioId": 1,
+            "transactionDate": "2020-01-01T00:00:00Z",
+            "amount": 100,
+            "categoryId": 1,
+            "categoryName": "Deposit at Bank Account",
+            "methodId": 2,
+            "methodName": "Bank Account - 123232323",
+            "description": "Deposit as a result of a sale.",
+            "createdAt": "2020-01-01T13:04:33Z",
+            "updatedAt": "2020-01-01T13:04:33Z"
+        }
+    ]
+
+### Create a new income record [POST]
+
+You may create an income record by using this action.
+
++ transactionDate (datetime) - The date and time that the transaction needs to be placed.
++ amount (double) - The amount of the transaction, should be double and represents a currency value.
++ categoryId (int) - This value should come from a list of available categories.
++ methodId (int) - This value should come from a list of available methods.
++ description (string) - An optional parameter that contains a description of what's being done in the current transaction.
+
++ Request (application/json)
+
+    {
+        "transactionDate": "2020-01-02T00:00:00Z",
+        "amount": 10,
+        "categoryId": 2,
+        "methodId": 1,
+        "description": "Borrowed from my wife :)"
+    }
+
++ Response 201 (application/json)
+    {
+        "transactioId": 2,
+        "transactionDate": "2020-01-02T00:00:00Z",
+        "amount": 10,
+        "categoryId": 2,
+        "categoryName": "Borrow",
+        "methodId": 1,
+        "methodName": "Cash",
+        "description": "Borrowed from my wife :)",
+        "createdAt": "2020-01-02T17:11:09Z",
+        "updatedAt": "2020-01-02T17:11:09Z"
+    }
+
+
+## Income [/income/{income_id}]
+
+This collection of API endpoints offer a way to keep your data up to date, remove or get a particular record.
+
+### Update an income record [PUT]
+
+You may update an income record by using this action.
+
++ transactionDate (datetime) - The date and time that the transaction needs to be placed.
++ amount (double) - The amount of the transaction, should be double and represents a currency value.
++ categoryId (int) - This value should come from a list of available categories.
++ methodId (int) - This value should come from a list of available methods.
++ description (string) - An optional parameter that contains a description of what's being done in the current transaction.
+
++ Request (application/json)
+
+    {
+        "transactionDate": "2020-01-02T00:00:00Z",
+        "amount": 10,
+        "categoryId": 2,
+        "methodId": 1,
+        "description": "Borrowed from my wife :)"
+    }
+
++ Response 201 (application/json)
+    {
+        "transactioId": 2,
+        "transactionDate": "2020-01-02T00:00:00Z",
+        "amount": 10,
+        "categoryId": 2,
+        "categoryName": "Borrow",
+        "methodId": 1,
+        "methodName": "Cash",
+        "description": "Borrowed from my wife :)",
+        "createdAt": "2020-01-02T17:11:09Z",
+        "updatedAt": "2020-01-02T17:11:09Z"
+    }
+
+### View an specific income record [GET]
+
++ Response 200 (application/json)
+    {
+        "transactioId": 2,
+        "transactionDate": "2020-01-02T00:00:00Z",
+        "amount": 10,
+        "categoryId": 2,
+        "categoryName": "Borrow",
+        "methodId": 1,
+        "methodName": "Cash",
+        "description": "Borrowed from my wife :)",
+        "createdAt": "2020-01-02T17:11:09Z",
+        "updatedAt": "2020-01-02T17:11:09Z"
+    }
+
+### Delete an income record [DELETE]
+
++ Response 200 (text/plain)
+    Ok
+
+
+## Expense Collection [/expense]
+
+A set of API endpoints to interact with the expenses collection
+
+### List all expenses [GET]
+
+By default this endpoint returns all expenses tracked during the current month.
+
++ Response 200 (application/json)
+
+    [
+        {
+            "transactioId": 1,
+            "transactionDate": "2020-01-01T00:00:00Z",
+            "amount": 100,
+            "categoryId": 3,
+            "categoryName": "Withdraw at Bank Account",
+            "methodId": 2,
+            "methodName": "Bank Account - 123232323",
+            "description": "Withdraw from an atm.",
+            "createdAt": "2020-01-01T13:04:33Z",
+            "updatedAt": "2020-01-01T13:04:33Z"
+        }
+    ]
+
+### Create a new expense record [POST]
+
+You may create an expense record by using this action.
+
++ transactionDate (datetime) - The date and time that the transaction needs to be placed.
++ amount (double) - The amount of the transaction, should be double and represents a currency value.
++ categoryId (int) - This value should come from a list of available categories.
++ methodId (int) - This value should come from a list of available methods.
++ description (string) - An optional parameter that contains a description of what's being done in the current transaction.
+
++ Request (application/json)
+
+    {
+        "transactionDate": "2020-01-02T00:00:00Z",
+        "amount": 10,
+        "categoryId": 2,
+        "methodId": 1,
+        "description": "Bought some groceries"
+    }
+
++ Response 201 (application/json)
+    {
+        "transactioId": 2,
+        "transactionDate": "2020-01-02T00:00:00Z",
+        "amount": 10,
+        "categoryId": 2,
+        "categoryName": "Supplies",
+        "methodId": 1,
+        "methodName": "Cash",
+        "description": "Bought some groceries",
+        "createdAt": "2020-01-02T17:11:09Z",
+        "updatedAt": "2020-01-02T17:11:09Z"
+    }
+
+
+## Expense [/expense/{expense_id}]
+
+This collection of API endpoints offer a way to keep your data up to date, remove or get a particular record.
+
+### Update an expense record [PUT]
+
+You may update an expense record by using this action.
+
++ transactionDate (datetime) - The date and time that the transaction needs to be placed.
++ amount (double) - The amount of the transaction, should be double and represents a currency value.
++ categoryId (int) - This value should come from a list of available categories.
++ methodId (int) - This value should come from a list of available methods.
++ description (string) - An optional parameter that contains a description of what's being done in the current transaction.
+
++ Request (application/json)
+
+    {
+        "transactionDate": "2020-01-02T00:00:00Z",
+        "amount": 10,
+        "categoryId": 2,
+        "methodId": 1,
+        "description": "Bought some groceries"
+    }
+
++ Response 201 (application/json)
+    {
+        "transactioId": 2,
+        "transactionDate": "2020-01-02T00:00:00Z",
+        "amount": 10,
+        "categoryId": 2,
+        "categoryName": "Supplies",
+        "methodId": 1,
+        "methodName": "Cash",
+        "description": "Bought some groceries",
+        "createdAt": "2020-01-02T17:11:09Z",
+        "updatedAt": "2020-01-02T17:11:09Z"
+    }
+
+### View an specific expense record [GET]
+
++ Response 200 (application/json)
+    {
+        "transactioId": 2,
+        "transactionDate": "2020-01-02T00:00:00Z",
+        "amount": 10,
+        "categoryId": 2,
+        "categoryName": "Supplies",
+        "methodId": 1,
+        "methodName": "Cash",
+        "description": "Bought some groceries",
+        "createdAt": "2020-01-02T17:11:09Z",
+        "updatedAt": "2020-01-02T17:11:09Z"
+    }
+
+### Delete an expense record [DELETE]
+
++ Response 200 (text/plain)
+    Ok
+
+
+## Categories Income Collection [/categories/income]
+
+### Categories income [GET]
+
+This API endpoint returns a list of categories for income transactions.
+
++ Response 200 (application/json)
+    [
+        {
+            "category_id": 1,
+            "category_name": "Deposit",
+            "description": "A category to use when you make a deposit into your bank account",
+        }
+    ]
+
+## Categories Expense Collection [/categories/expense]
+
+### Categories expense [GET]
+
+This API endpoint returns a list of categories for expense transactions.
+
++ Response 200 (application/json)
+    [
+        {
+            "category_id": 1,
+            "category_name": "Supplies",
+            "description": "A category to use when you buy in the supermarket or the liquour store. :)",
+        }
+    ]
+
+## Methods Collection [/methods]
+
+### Methods [GET]
+
+This API endpoint returns a list of categories for income transactions.
+
++ Response 200 (application/json)
+    [
+        {
+            "method_id": 1,
+            "method_name": "Bank Account",
+            "description": "A bank account to deposit or withdraw",
+        },
+        {
+            "method_id": 2,
+            "method_name": "Cash",
+            "description": "Cash method",
+        }
+    ]

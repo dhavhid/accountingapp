@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: accounting
+      POSTGRES_PASSWORD: 123
+    volumes:
+      - ./datadir:/var/lib/postgresql/data
+    working_dir: /db
+    ports:
+      - 5432:5432
+    networks:
+      - main
+  accounting:
+    image: php/laravel
+    working_dir: /var/www/html
+    links:
+      - db
+    volumes:
+      - ./logs/php_error.log:/tmp/php_errors.log
+      - ./logs/error.log:/var/log/apache2/error.log
+      - ./logs/access.log:/var/log/apache2/access.log
+      - ./src:/var/www/html/
+    ports:
+      - 80:80
+    depends_on:
+      - db
+    networks:
+      - main
+
+networks:
+  main:

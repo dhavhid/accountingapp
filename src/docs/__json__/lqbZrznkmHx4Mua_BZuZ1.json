@@ -1,0 +1,43 @@
+{
+  "title": "Categories income",
+  "description": "This API endpoint returns a list of categories for income transactions.",
+  "permalink": "t~categories~income~collection~get~categories~income",
+  "uuid": "lqbZrznkmHx4Mua_BZuZ1",
+  "method": "GET",
+  "path": "/categories/income",
+  "pathTemplate": "/categories/income",
+  "parameters": [],
+  "meta": {
+    "resource": {
+      "title": "Categories Income Collection",
+      "permalink": "r~categories~income~collection"
+    }
+  },
+  "transactions": [
+    {
+      "request": {
+        "title": "",
+        "description": "",
+        "method": "GET",
+        "headers": []
+      },
+      "response": {
+        "title": "",
+        "description": "",
+        "statusCode": "200",
+        "contentType": "application/json",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "example": "application/json",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "body": "[\n    {\n        \"category_id\": 1,\n        \"category_name\": \"Deposit\",\n        \"description\": \"A category to use when you make a deposit into your bank account\",\n    }\n]\n\n"
+      }
+    }
+  ]
+}

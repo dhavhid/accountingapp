@@ -1,0 +1,43 @@
+{
+  "title": "Methods",
+  "description": "This API endpoint returns a list of categories for income transactions.",
+  "permalink": "t~methods~collection~get~methods",
+  "uuid": "iYioBoWg48KtCB6OjRvPJ",
+  "method": "GET",
+  "path": "/methods",
+  "pathTemplate": "/methods",
+  "parameters": [],
+  "meta": {
+    "resource": {
+      "title": "Methods Collection",
+      "permalink": "r~methods~collection"
+    }
+  },
+  "transactions": [
+    {
+      "request": {
+        "title": "",
+        "description": "",
+        "method": "GET",
+        "headers": []
+      },
+      "response": {
+        "title": "",
+        "description": "",
+        "statusCode": "200",
+        "contentType": "application/json",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "example": "application/json",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "body": "[\n    {\n        \"method_id\": 1,\n        \"method_name\": \"Bank Account\",\n        \"description\": \"A bank account to deposit or withdraw\",\n    },\n    {\n        \"method_id\": 2,\n        \"method_name\": \"Cash\",\n        \"description\": \"Cash method\",\n    }\n]\n\n"
+      }
+    }
+  ]
+}

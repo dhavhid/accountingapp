@@ -1,0 +1,43 @@
+{
+  "title": "List all expenses",
+  "description": "By default this endpoint returns all expenses tracked during the current month.",
+  "permalink": "t~expense~collection~get~expense",
+  "uuid": "bcQoKwCYxsv_f1ep3bOxt",
+  "method": "GET",
+  "path": "/expense",
+  "pathTemplate": "/expense",
+  "parameters": [],
+  "meta": {
+    "resource": {
+      "title": "Expense Collection",
+      "permalink": "r~expense~collection"
+    }
+  },
+  "transactions": [
+    {
+      "request": {
+        "title": "",
+        "description": "",
+        "method": "GET",
+        "headers": []
+      },
+      "response": {
+        "title": "",
+        "description": "",
+        "statusCode": "200",
+        "contentType": "application/json",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "example": "application/json",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "body": "[\n    {\n        \"transactioId\": 1,\n        \"transactionDate\": \"2020-01-01T00:00:00Z\",\n        \"amount\": 100,\n        \"categoryId\": 3,\n        \"categoryName\": \"Withdraw at Bank Account\",\n        \"methodId\": 2,\n        \"methodName\": \"Bank Account - 123232323\",\n        \"description\": \"Withdraw from an atm.\",\n        \"createdAt\": \"2020-01-01T13:04:33Z\",\n        \"updatedAt\": \"2020-01-01T13:04:33Z\"\n    }\n]\n"
+      }
+    }
+  ]
+}

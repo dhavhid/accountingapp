@@ -1,0 +1,43 @@
+{
+  "title": "Delete an expense record",
+  "description": "",
+  "permalink": "t~expense~delete~expense~expense~id",
+  "uuid": "R-Q4EJWFkzoyFWPijdqXI",
+  "method": "DELETE",
+  "path": "/expense/{expense_id}",
+  "pathTemplate": "/expense/{expense_id}",
+  "parameters": [],
+  "meta": {
+    "resource": {
+      "title": "Expense",
+      "permalink": "r~expense"
+    }
+  },
+  "transactions": [
+    {
+      "request": {
+        "title": "",
+        "description": "",
+        "method": "DELETE",
+        "headers": []
+      },
+      "response": {
+        "title": "",
+        "description": "",
+        "statusCode": "200",
+        "contentType": "text/plain",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "example": "text/plain",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "body": "Ok\n\n"
+      }
+    }
+  ]
+}

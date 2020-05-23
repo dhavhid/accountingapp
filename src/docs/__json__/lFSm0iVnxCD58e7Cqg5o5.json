@@ -1,0 +1,43 @@
+{
+  "title": "View an specific expense record",
+  "description": "",
+  "permalink": "t~expense~get~expense~expense~id",
+  "uuid": "lFSm0iVnxCD58e7Cqg5o5",
+  "method": "GET",
+  "path": "/expense/{expense_id}",
+  "pathTemplate": "/expense/{expense_id}",
+  "parameters": [],
+  "meta": {
+    "resource": {
+      "title": "Expense",
+      "permalink": "r~expense"
+    }
+  },
+  "transactions": [
+    {
+      "request": {
+        "title": "",
+        "description": "",
+        "method": "GET",
+        "headers": []
+      },
+      "response": {
+        "title": "",
+        "description": "",
+        "statusCode": "200",
+        "contentType": "application/json",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "example": "application/json",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "body": "{\n    \"transactioId\": 2,\n    \"transactionDate\": \"2020-01-02T00:00:00Z\",\n    \"amount\": 10,\n    \"categoryId\": 2,\n    \"categoryName\": \"Supplies\",\n    \"methodId\": 1,\n    \"methodName\": \"Cash\",\n    \"description\": \"Bought some groceries\",\n    \"createdAt\": \"2020-01-02T17:11:09Z\",\n    \"updatedAt\": \"2020-01-02T17:11:09Z\"\n}\n\n"
+      }
+    }
+  ]
+}

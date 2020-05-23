@@ -1,0 +1,43 @@
+{
+  "title": "Delete an income record",
+  "description": "",
+  "permalink": "t~income~delete~income~income~id",
+  "uuid": "J3Y22nSrdH4v2GSxYUz5u",
+  "method": "DELETE",
+  "path": "/income/{income_id}",
+  "pathTemplate": "/income/{income_id}",
+  "parameters": [],
+  "meta": {
+    "resource": {
+      "title": "Income",
+      "permalink": "r~income"
+    }
+  },
+  "transactions": [
+    {
+      "request": {
+        "title": "",
+        "description": "",
+        "method": "DELETE",
+        "headers": []
+      },
+      "response": {
+        "title": "",
+        "description": "",
+        "statusCode": "200",
+        "contentType": "text/plain",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "example": "text/plain",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "body": "Ok\n\n"
+      }
+    }
+  ]
+}

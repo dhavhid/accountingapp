@@ -1,0 +1,54 @@
+{
+  "title": "Update an income record",
+  "description": "You may update an income record by using this action.\n\n+ transactionDate (datetime) - The date and time that the transaction needs to be placed.\n\n+ amount (double) - The amount of the transaction, should be double and represents a currency value.\n\n+ categoryId (int) - This value should come from a list of available categories.\n\n+ methodId (int) - This value should come from a list of available methods.\n\n+ description (string) - An optional parameter that contains a description of what's being done in the current transaction.",
+  "permalink": "t~income~put~income~income~id",
+  "uuid": "4gZn9-cV_dscE5_5FAfrp",
+  "method": "PUT",
+  "path": "/income/{income_id}",
+  "pathTemplate": "/income/{income_id}",
+  "parameters": [],
+  "meta": {
+    "resource": {
+      "title": "Income",
+      "permalink": "r~income"
+    }
+  },
+  "transactions": [
+    {
+      "request": {
+        "title": "",
+        "description": "",
+        "method": "PUT",
+        "contentType": "application/json",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "example": "application/json",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "body": "{\n    \"transactionDate\": \"2020-01-02T00:00:00Z\",\n    \"amount\": 10,\n    \"categoryId\": 2,\n    \"methodId\": 1,\n    \"description\": \"Borrowed from my wife :)\"\n}\n"
+      },
+      "response": {
+        "title": "",
+        "description": "",
+        "statusCode": "201",
+        "contentType": "application/json",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "example": "application/json",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "body": "{\n    \"transactioId\": 2,\n    \"transactionDate\": \"2020-01-02T00:00:00Z\",\n    \"amount\": 10,\n    \"categoryId\": 2,\n    \"categoryName\": \"Borrow\",\n    \"methodId\": 1,\n    \"methodName\": \"Cash\",\n    \"description\": \"Borrowed from my wife :)\",\n    \"createdAt\": \"2020-01-02T17:11:09Z\",\n    \"updatedAt\": \"2020-01-02T17:11:09Z\"\n}\n\n"
+      }
+    }
+  ]
+}

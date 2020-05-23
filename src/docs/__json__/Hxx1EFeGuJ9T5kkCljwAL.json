@@ -1,0 +1,43 @@
+{
+  "title": "Categories expense",
+  "description": "This API endpoint returns a list of categories for expense transactions.",
+  "permalink": "t~categories~expense~collection~get~categories~expense",
+  "uuid": "Hxx1EFeGuJ9T5kkCljwAL",
+  "method": "GET",
+  "path": "/categories/expense",
+  "pathTemplate": "/categories/expense",
+  "parameters": [],
+  "meta": {
+    "resource": {
+      "title": "Categories Expense Collection",
+      "permalink": "r~categories~expense~collection"
+    }
+  },
+  "transactions": [
+    {
+      "request": {
+        "title": "",
+        "description": "",
+        "method": "GET",
+        "headers": []
+      },
+      "response": {
+        "title": "",
+        "description": "",
+        "statusCode": "200",
+        "contentType": "application/json",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "example": "application/json",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "body": "[\n    {\n        \"category_id\": 1,\n        \"category_name\": \"Supplies\",\n        \"description\": \"A category to use when you buy in the supermarket or the liquour store. :)\",\n    }\n]\n\n"
+      }
+    }
+  ]
+}

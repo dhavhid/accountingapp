@@ -1,0 +1,43 @@
+{
+  "title": "List all incomes",
+  "description": "By default this endpoint returns all incomes tracked during the current month.",
+  "permalink": "t~income~collection~get~income",
+  "uuid": "5y_vJ9XOHS8bb033t-TuD",
+  "method": "GET",
+  "path": "/income",
+  "pathTemplate": "/income",
+  "parameters": [],
+  "meta": {
+    "resource": {
+      "title": "Income Collection",
+      "permalink": "r~income~collection"
+    }
+  },
+  "transactions": [
+    {
+      "request": {
+        "title": "",
+        "description": "",
+        "method": "GET",
+        "headers": []
+      },
+      "response": {
+        "title": "",
+        "description": "",
+        "statusCode": "200",
+        "contentType": "application/json",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "example": "application/json",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "body": "[\n    {\n        \"transactioId\": 1,\n        \"transactionDate\": \"2020-01-01T00:00:00Z\",\n        \"amount\": 100,\n        \"categoryId\": 1,\n        \"categoryName\": \"Deposit at Bank Account\",\n        \"methodId\": 2,\n        \"methodName\": \"Bank Account - 123232323\",\n        \"description\": \"Deposit as a result of a sale.\",\n        \"createdAt\": \"2020-01-01T13:04:33Z\",\n        \"updatedAt\": \"2020-01-01T13:04:33Z\"\n    }\n]\n"
+      }
+    }
+  ]
+}
