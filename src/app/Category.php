@@ -12,7 +12,7 @@ class Category extends BaseModel
     public static $sortable = ['title', 'description', 'output'];
 
 
-    public static function searchAll($req) {
+    public static function searchPaginated($req) {
 
         $keyword = "%" . $req->input('_q') . "%";
         extract(Category::getSorting($req)); // [$field, $order, $page, $per_page]

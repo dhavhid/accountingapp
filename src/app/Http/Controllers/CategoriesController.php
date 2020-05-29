@@ -18,7 +18,7 @@ class CategoriesController extends Controller
     public function index(Request $request)
     {
 
-        $results = Category::searchAll($request);
+        $results = Category::searchPaginated($request);
         return new CategoryCollection($results);
     }
 
