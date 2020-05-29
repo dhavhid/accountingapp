@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:api')->resource('/v1/methods', 'IOMethodController');
+Route::middleware('auth:api')->resource('/v1/categories', 'CategoriesController');

@@ -27,7 +27,14 @@ abstract class TestCase extends BaseTestCase
             'pass' => env('USER_PASS'),
             'client_id' => env('CLIENT_ID'),
             'client_secret' => env('CLIENT_SECRET'),
-            'token' => env('STAGING_TOKEN')
+            'token' => env('TOKEN')
+        ];
+    }
+
+    function noAuthHeaders() {
+        return [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer XX23'
         ];
     }
 }
