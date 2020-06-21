@@ -2,9 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 
-class CategorySeeder extends Seeder
+class TransactionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,9 +12,9 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $categories = factory(\App\Category::class, 50)->make();
-        $categories->each(function($cat) {
-            $cat->save();
+        $transactions = factory(\App\Transaction::class, 200)->make();
+        $transactions->each(function($trans) {
+            $trans->save();
         });
     }
 }

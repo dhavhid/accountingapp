@@ -6,6 +6,7 @@ use App\User;
 use App\Category;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ $factory->define(Category::class, function (Faker $faker) {
     return [
         'title' => $faker->company,
         'description' => $faker->realText(10),
-        'output' => $faker->randomElement([0,1])
+        'output' => $faker->randomElement([0,1]),
+        'created_at' => Carbon::now(),
+        'updated_at' => Carbon::now()
     ];
 });
