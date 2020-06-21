@@ -17,7 +17,8 @@ class BaseModel extends Model {
 
     public static function getSorting($req) {
 
-        $limit = config('app.perpage')? config('app.perpage') : 10;
+        $perPage = config('app.perpage', false);
+        $limit = $perPage? $perPage : 10;
         $_sort = ltrim(rtrim($req->input('sort')));
         $_sdir = ltrim(rtrim($req->input('sord')));
         $_page = (is_numeric(ltrim(rtrim($req->input('page')))))? ltrim(rtrim($req->input('page'))) : 1;

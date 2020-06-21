@@ -22,6 +22,7 @@ class Transaction extends JsonResource
           'description' => $this->description,
           'iomethodId' => $this->iomethod_id,
           'categoryId' => $this->category_id,
+          'createdAt' => (new Carbon($this->created_at))->toIso8601String(),
           'updatedAt' => (new Carbon($this->updated_at))->toIso8601String()
         ];
     }
