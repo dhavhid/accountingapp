@@ -41,6 +41,7 @@ class TransactionsController extends Controller
      */
     public function store(Request $request)
     {
+        $now = Carbon::now();
         try {
             $transDate = Carbon::parse($request->input('transDate'), 'UTC')->toDateTimeString();
         } catch (\Exception $e) {
@@ -66,6 +67,8 @@ class TransactionsController extends Controller
         $transaction->iomethod_id = $iomethod_id;
         $transaction->category_id = $category_id;
         $transaction->user_id = Auth::id();
+        $transaction->created_at = $now;
+        $transaction->updated_at = $now;
 
         try {
             $transaction->save();
@@ -107,7 +110,40 @@ class TransactionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $transaction = Transaction::findOrFail($id);
+        $now = Carbon::now();
+        try {
+            if (!is_null($request->input('transDate'))) {
+                $transaction->transdate = Carbon::parse($request->input('transDate'), 'UTC')->toDateTimeString();
+            }
+        } catch (\Exception $e) {
+            return Response(['error' => $this->getMessage(400)], 400);
+        }
+
+        $transaction->amount = (!is_null($request->input('amount')))? floatval($request->input('amount')) : $transaction->amount;
+        $transaction->description = (!is_null($request->input('description')))? $request->input('description') : $transaction->description;
+        $transaction->iomethod_id = (!is_null($request->input('iomethodId')))? $request->input('iomethodId') : $transaction->iomethod_id;
+        $transaction->category_id = (!is_null($request->input('categoryId')))? $request->input('categoryId') : $transaction->category_id;
+
+        // verify iomethod and category
+        $countIOMethod = DB::table('iomethods')->where('id', $transaction->iomethod_id)->count();
+        $countCategory = DB::table('categories')->where('id', $transaction->category_id)->count();
+        if ($countCategory === 0 || $countIOMethod === 0) {
+            return Response(['error' => $this->getMessage(400)], 400);
+        }
+
+        $transaction->updated_at = $now;
+        $transaction->save();
+
+        try {
+            $transaction->save();
+            return (new TransactionResource($transaction))
+                ->response()
+                ->setStatusCode(202);
+        } catch (\Exception $e) {
+            return response(['error' => $this->getMessage(400)], 400);
+        }
     }
 
     /**
@@ -118,6 +154,13 @@ class TransactionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $transaction = Transaction::findOrFail($id);
+
+        try {
+            $transaction->delete();
+            return response('', 202);
+        } catch (\Exception $e) {}
+
+        return response(['error' => $this->getMessage(400)], 400);
     }
 }

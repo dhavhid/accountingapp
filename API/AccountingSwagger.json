@@ -113,7 +113,7 @@
         }
       },
       "post": {
-        "summary": "Create Duplicate",
+        "summary": "Create",
         "description": "",
         "operationId": "bac4a37c-0b7a-449b-9804-9a0260286ba8",
         "consumes": [
@@ -187,6 +187,152 @@
         "summary": "Delete",
         "description": "",
         "operationId": "12f9e44c-fd31-416b-b8b4-8ca4c439a265",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/api/v1/transactions": {
+      "get": {
+        "summary": "Index",
+        "description": "",
+        "operationId": "d3c13c90-c739-4cee-9e6c-0f64c8937ed1",
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "name": "_q",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "title",
+            "name": "sort",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "asc",
+            "name": "sord",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "page",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "10",
+            "name": "per_page",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "285",
+            "name": "categoryId",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "2",
+            "name": "iomethodId",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create",
+        "description": "",
+        "operationId": "1726ecef-286a-4a4d-b02a-84a19279aeb8",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"transDate\":\"2020-06-22T05:17:48.192Z\",\"amount\":12.35,\"description\":\"Compr\\u00e9 golosinas\",\"iomethodId\":\"2\",\"categoryId\":\"259\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        }
+      }
+    },
+    "/api/v1/transactions/203": {
+      "get": {
+        "summary": "Show",
+        "description": "",
+        "operationId": "f108b41a-64e3-4dc4-b934-cf6637878870",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/api/v1/transactions/405": {
+      "put": {
+        "summary": "Update",
+        "description": "",
+        "operationId": "a0186010-3881-4e34-8d4a-a7709cd1da3c",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"transDate\":\"2020-06-19T09:25:00.000Z\",\"amount\":\"9.05\",\"categoryId\":\"301\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        }
+      }
+    },
+    "/api/v1/transactions/403": {
+      "delete": {
+        "summary": "Delete",
+        "description": "",
+        "operationId": "69b2e4a3-ef72-40d8-821d-2dd6e792c816",
         "responses": {
           "default": {
             "description": "no response description was provided for this operation"

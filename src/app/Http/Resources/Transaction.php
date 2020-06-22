@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class Transaction extends JsonResource
@@ -16,14 +17,16 @@ class Transaction extends JsonResource
     public function toArray($request)
     {
         return [
-          'id' => $this->id,
-          'transDate' => (new Carbon($this->transdate))->toIso8601String(),
-          'amount' => floatval($this->amount),
-          'description' => $this->description,
-          'iomethodId' => $this->iomethod_id,
-          'categoryId' => $this->category_id,
-          'createdAt' => (new Carbon($this->created_at))->toIso8601String(),
-          'updatedAt' => (new Carbon($this->updated_at))->toIso8601String()
+            'id' => $this->id,
+            'transDate' => (new Carbon($this->transdate))->toIsoString(),
+            'amount' => floatval($this->amount),
+            'description' => $this->description,
+            'iomethodId' => $this->iomethod_id,
+            'iomethodName' => DB::table('iomethods')->where('id', $this->iomethod_id)->value('title'),
+            'categoryId' => $this->category_id,
+            'categoryName' => DB::table('categories')->where('id', $this->category_id)->value('title'),
+            'createdAt' => (new Carbon($this->created_at))->toIsoString(),
+            'updatedAt' => (new Carbon($this->updated_at))->toIsoString()
         ];
     }
 }
