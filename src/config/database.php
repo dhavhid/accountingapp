@@ -37,12 +37,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'db'),
+            'url' => env('DATABASE_URL', 'accounting.ctbn7m42ypzx.us-east-2.rds.amazonaws.com'),
+            'host' => env('DB_HOST', 'dbaccounting.ctbn7m42ypzx.us-east-2.rds.amazonaws.com'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'accounting'),
             'username' => env('DB_USERNAME', 'accounting'),
-            'password' => env('DB_PASSWORD', '123'),
+            'password' => env('DB_PASSWORD', '2mq$kZTyH!q'),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
