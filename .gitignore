@@ -6,6 +6,7 @@ logs/
 /public/storage
 /storage/*.key
 /vendor
+/versions
 .env
 .env.testing
 .env.backup
